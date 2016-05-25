@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Places I know-Peru</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cover.css">
+    
+    <script type="text/javascript" src="myPlaces.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["map"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+		var domain = 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/'
+        var data = google.visualization.arrayToDataTable(cities);
+        var options = {showTip: true,
+					    icons: {
+      default: {
+        normal:  domain + 'Map-Marker-Push-Pin-1-Chartreuse-icon.png',
+        selected:domain +'Map-Marker-Push-Pin-1-Right-Chartreuse-icon.png'
+      }
+    }};
+        var map = new google.visualization.Map(document.getElementById('map_div'));
+        map.draw(data, options);
+      }
+    </script>
+    
+  </head>
+  <body>
+
+<div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Welcome to places I have visited along my life</h3>
+              <div id="map_div" style="width: 500px; height: 450px"></div>
+            </div>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
